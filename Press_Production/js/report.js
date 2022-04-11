@@ -7,7 +7,7 @@ window.onload= function(){
         header.classList.toggle('headerhov');
     })
     
-    let slide = document.querySelectorAll('.swiper-slide');
+    let slide = document.querySelectorAll('.mini');
     for(let i=0; i<slide.length; i++){
 
         slide[i].addEventListener('mouseover',function(){
@@ -131,9 +131,27 @@ window.onload= function(){
         })
 
 
+        let modal = document.getElementById("modal");
+        let closeBtn = document.querySelector(".close");
+        let swiperCont = document.querySelectorAll(".mini");
+        let currentCont = document.querySelector(".swiper-pagination-current");
+
+        let closeModal = () => {
+            modal.classList.add('hidden');
+        }
+        
+        closeBtn.addEventListener('click',closeModal);
+
+        for(let i = 0; i<swiperCont.length; i++){
+            swiperCont[i].addEventListener('click',()=>{
+                modal.classList.remove('hidden');
+            });
+            
+        }
+
 
         //swiper.js 
-        var swiper = new Swiper(".swipe_slide", {
+        let swiper1 = new Swiper(".first", {
             slidesPerView: 3.75,
             spaceBetween: 30,
             freeMode: true,
@@ -147,5 +165,16 @@ window.onload= function(){
               },
           });
 
-
+          let swiper2 = new Swiper(".second", {
+            
+            pagination: {
+              el: ".swiper-pagination",
+              type: "fraction",
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        
 }
