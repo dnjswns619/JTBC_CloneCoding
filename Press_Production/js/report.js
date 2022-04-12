@@ -1,4 +1,12 @@
 window.onload= function(){
+    let experience = document.querySelector(".experience")
+    let expClose = document.querySelector(".exp_close")
+    expClose.addEventListener('click',()=>{
+        experience.classList.add('hidden');
+    })
+    
+    
+    
     let header = document.getElementById('header');
     header.addEventListener('mouseenter',function(){
         header.classList.add('headerhov');
@@ -115,7 +123,7 @@ window.onload= function(){
 
         let fotlink2 = document.getElementById('fot_link2');
         let link2cont = document.getElementById('link2_cont');
-        let close = document.getElementById('close');
+        let fotClose = document.querySelector('.fot_close');
 
         fotlink2.addEventListener('click',function(){
             fotlink2.classList.add('open');
@@ -125,14 +133,14 @@ window.onload= function(){
                 link2cont.classList.toggle('block');
             })
         })
-        close.addEventListener('click',function(){
+        fotClose.addEventListener('click',function(){
             fotlink2.classList.toggle('open');
             link2cont.classList.toggle('block');
         })
 
 
         let modal = document.getElementById("modal");
-        let closeBtn = document.querySelector(".close");
+        let modalClose = document.querySelector(".modal_close");
         let swiperCont = document.querySelectorAll(".mini");
         let currentCont = document.querySelector(".swiper-pagination-current");
 
@@ -140,7 +148,7 @@ window.onload= function(){
             modal.classList.add('hidden');
         }
         
-        closeBtn.addEventListener('click',closeModal);
+        modalClose.addEventListener('click',closeModal);
 
         for(let i = 0; i<swiperCont.length; i++){
             swiperCont[i].addEventListener('click',()=>{
